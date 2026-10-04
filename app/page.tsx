@@ -2,68 +2,228 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main>
+      {/* ========================================
+          HERO
+          ======================================== */}
+
+      <section className="hero">
+        <div className="hero-container">
+
+          {/* Hero text */}
+
+          <div className="hero-content">
+
+            <p className="hero-eyebrow">
+              NEXKARA STUDIO
+            </p>
+
+            <h1 className="hero-title">
+              Ide yang layak
+              <br />
+              <span>diwujudkan.</span>
+            </h1>
+
+            <p className="hero-description">
+              Kami membantu mengubah ide menjadi desain,
+              produk, dan solusi digital yang benar-benar
+              bisa digunakan.
+            </p>
+
+            <div className="hero-actions">
+              <a href="/contact" className="hero-button hero-button-primary">
+                Mulai Proyek
+                <span aria-hidden="true">↗</span>
+              </a>
+
+              <a href="/portfolio" className="hero-button hero-button-secondary">
+                Lihat Karya
+              </a>
+            </div>
+
+          </div>
+
+
+          {/* Hero visual */}
+
+          <div className="hero-visual" aria-hidden="true">
+
+            <div className="hero-glow hero-glow-blue" />
+            <div className="hero-glow hero-glow-magenta" />
+
+            <div className="hero-symbol-wrapper">
+              <Image
+                src="/images/nexkara.png"
+                alt=""
+                width={520}
+                height={520}
+                priority
+                className="hero-symbol"
+              />
+            </div>
+
+            <div className="hero-orbit hero-orbit-one" />
+            <div className="hero-orbit hero-orbit-two" />
+
+          </div>
+
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+
+        {/* Bottom information */}
+
+        <div className="hero-bottom">
+
+          <div className="hero-bottom-item">
+            <span className="hero-bottom-label">01</span>
+            <span>Desain</span>
+          </div>
+
+          <div className="hero-bottom-item">
+            <span className="hero-bottom-label">02</span>
+            <span>Printing</span>
+          </div>
+
+          <div className="hero-bottom-item">
+            <span className="hero-bottom-label">03</span>
+            <span>IT Solution</span>
+          </div>
+
+          <div className="hero-scroll">
+            <span>Scroll untuk menjelajah</span>
+            <span className="hero-scroll-arrow">↓</span>
+          </div>
+
         </div>
-      </main>
-    </div>
+
+      </section>
+
+
+      {/* ========================================
+          OUR SOLUTIONS — PREVIEW
+          ======================================== */}
+
+      <section className="solutions-preview">
+
+        <div className="container">
+
+          <div className="solutions-heading">
+
+            <p className="section-eyebrow">
+              Apa yang kami lakukan
+            </p>
+
+            <h2>
+              Satu tempat untuk
+              <br />
+              berbagai kebutuhan.
+            </h2>
+
+            <p>
+              Dari ide visual hingga kebutuhan produksi dan teknologi,
+              kami membantu mewujudkan apa yang kamu butuhkan.
+            </p>
+
+          </div>
+
+
+          <div className="solutions-grid">
+
+            <a href="/services/design" className="solution-card">
+
+              <div className="solution-card-number">
+                01
+              </div>
+
+              <div className="solution-card-content">
+                <p className="solution-card-label">
+                  Layanan
+                </p>
+
+                <h3>Desain</h3>
+
+                <p>
+                  Identitas visual, grafis, vector, animasi,
+                  dan kebutuhan kreatif untuk membangun
+                  karakter brand.
+                </p>
+              </div>
+
+              <span className="solution-card-arrow" aria-hidden="true">
+                <img
+                  src="/images/nexkara-simbol.png"
+                  alt=""
+                />
+              </span>
+
+            </a>
+
+
+            <a href="/products" className="solution-card">
+
+              <div className="solution-card-number">
+                02
+              </div>
+
+              <div className="solution-card-content">
+                <p className="solution-card-label">
+                  Produk
+                </p>
+
+                <h3>Printing</h3>
+
+                <p>
+                  Berbagai kebutuhan cetak dan merchandise
+                  untuk mendukung bisnis, acara, maupun
+                  kebutuhan personal.
+                </p>
+              </div>
+
+              <span className="solution-card-arrow" aria-hidden="true">
+                <img
+                  src="/images/nexkara-simbol.png"
+                  alt=""
+                />
+              </span>
+
+            </a>
+
+
+            <a href="/services/it" className="solution-card">
+
+              <div className="solution-card-number">
+                03
+              </div>
+
+              <div className="solution-card-content">
+                <p className="solution-card-label">
+                  Layanan
+                </p>
+
+                <h3>IT Solution</h3>
+
+                <p>
+                  Website, sistem, dan solusi teknologi
+                  yang dirancang sesuai kebutuhan
+                  dan cara kerja bisnis.
+                </p>
+              </div>
+
+              <span className="solution-card-arrow" aria-hidden="true">
+                <img
+                  src="/images/nexkara-simbol.png"
+                  alt=""
+                />
+              </span>
+
+            </a>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
   );
 }

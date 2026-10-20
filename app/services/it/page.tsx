@@ -1,0 +1,3 @@
+import Link from "next/link";
+import PageIntro from "@/components/site/PageIntro";
+export default function ItServicePage() { return <main className="inner-page container"><PageIntro eyebrow="IT & DIGITAL SOLUTIONS" title="Teknologi yang dirancang untuk kebutuhan nyata." description="Website, aplikasi, dan sistem digital yang disesuaikan dengan kebutuhan serta alur kerja proyek." /><section className="inner-page-copy"><h2>Dari kebutuhan ke solusi</h2><p>Kami mulai dengan memahami tujuan, pengguna, dan kebutuhan teknis, lalu menyusun ruang lingkup solusi digital yang dapat digunakan.</p><Link className="inner-page-link" href="/contact">Diskusikan kebutuhan digital ↗</Link></section></main>; }

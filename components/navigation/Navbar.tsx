@@ -1,19 +1,14 @@
+"use client";
+
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useRef } from "react";
 
 const navItems = [
   {
     label: "Layanan",
     href: "/services",
-    dropdown: [
-      {
-        label: "Desain",
-        href: "/services/design",
-      },
-      {
-        label: "IT",
-        href: "/services/it",
-      },
-    ],
   },
   {
     label: "Produk",
@@ -34,10 +29,26 @@ const navItems = [
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
+  const mobileMenuRef = useRef<HTMLDetailsElement>(null);
+
+  const isActive = (href: string) =>
+    pathname === href || pathname.startsWith(`${href}/`);
+
+  const closeMobileMenu = () => {
+    mobileMenuRef.current?.removeAttribute("open");
+  };
+
   return (
     <header className="navbar-wrapper">
       <nav className="navbar">
-        <a href="/" className="navbar-logo" aria-label="NEXKARA">
+        <Link
+          href="/"
+          className="navbar-logo"
+          aria-label="NEXKARA Studio, beranda"
+          aria-current={pathname === "/" ? "page" : undefined}
+          onClick={closeMobileMenu}
+        >
           <Image
             src="/images/nexkara-logo.png"
             alt="NEXKARA Studio"
@@ -45,29 +56,54 @@ export default function Navbar() {
             height={48}
             priority
           />
-        </a>
+        </Link>
 
         <div className="navbar-links">
           {navItems.map((item) => (
-            <a key={item.label} href={item.href}>
+            <Link
+              key={item.label}
+              href={item.href}
+              aria-current={isActive(item.href) ? "page" : undefined}
+            >
               <span>{item.label}</span>
-
-              {item.dropdown && (
-                <span className="navbar-chevron" aria-hidden="true">
-                  ↓
-                </span>
-              )}
-            </a>
+            </Link>
           ))}
         </div>
 
-        <a href="/contact" className="navbar-contact">
+        <Link
+          href="/contact"
+          className="navbar-contact"
+          aria-current={isActive("/contact") ? "page" : undefined}
+        >
           Kontak
-        </a>
+        </Link>
 
-        <button className="navbar-menu" aria-label="Buka menu">
-          Menu
-        </button>
+        <details className="navbar-mobile" ref={mobileMenuRef}>
+          <summary className="navbar-menu" aria-label="Menu navigasi">
+            Menu
+          </summary>
+          <div className="navbar-mobile-panel">
+            {navItems.map((item) => (
+              <div className="navbar-mobile-item" key={item.label}>
+                <Link
+                  href={item.href}
+                  aria-current={isActive(item.href) ? "page" : undefined}
+                  onClick={closeMobileMenu}
+                >
+                  {item.label}
+                </Link>
+              </div>
+            ))}
+            <Link
+              href="/contact"
+              className="navbar-mobile-contact"
+              aria-current={isActive("/contact") ? "page" : undefined}
+              onClick={closeMobileMenu}
+            >
+              Kontak
+            </Link>
+          </div>
+        </details>
       </nav>
     </header>
   );

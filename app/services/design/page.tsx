@@ -1,0 +1,3 @@
+import Link from "next/link";
+import PageIntro from "@/components/site/PageIntro";
+export default function DesignServicePage() { return <main className="inner-page container"><PageIntro eyebrow="CREATIVE & BRANDING" title="Desain yang memberi bentuk pada ide." description="Layanan kreatif untuk membantu menyampaikan karakter, pesan, dan kebutuhan visual melalui pendekatan yang sesuai dengan proyek." /><section className="inner-page-copy"><h2>Ruang lingkup kreatif</h2><p>Identitas visual, kebutuhan grafis, vector, dan animasi dapat dibahas sebagai bagian dari kebutuhan proyek. Ruang lingkup ditentukan bersama sebelum pekerjaan dimulai.</p><Link className="inner-page-link" href="/contact">Diskusikan kebutuhan desain ↗</Link></section></main>; }

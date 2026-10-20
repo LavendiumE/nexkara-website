@@ -1,0 +1,4 @@
+import PageIntro from "@/components/site/PageIntro";
+import { blogPosts } from "./posts";
+import Link from "next/link";
+export default function BlogPage() { const posts = blogPosts.filter((post) => post.status === "published"); return <main className="inner-page container"><PageIntro eyebrow="CATATAN NEXKARA" title="Blog" description="Gagasan dan catatan seputar desain, produksi, dan teknologi." />{posts.length ? <div className="inner-page-grid">{posts.map((post) => <Link className="inner-page-card" href={`/blog/${post.slug}`} key={post.slug}><p className="section-eyebrow">{post.category}</p><h2>{post.title}</h2><p>{post.excerpt}</p></Link>)}</div> : <div className="inner-page-empty"><h2>Artikel sedang disiapkan.</h2><p>Catatan NEXKARA akan hadir di sini setelah siap dipublikasikan.</p></div>}</main>; }
